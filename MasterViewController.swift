@@ -10,6 +10,16 @@ import UIKit
 
 class MasterViewController: UITableViewController {
 
+    
+    @IBOutlet weak var select_image: UIImageView!
+    @IBAction func cameraButton(_ sender: UIBarButtonItem) {
+    }
+    @IBAction func photoLibraryButton(_ sender: UIBarButtonItem) {
+    }
+    @IBAction func saveBUtton(_ sender: Any) {
+    }
+    
+    
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
 
@@ -25,6 +35,10 @@ class MasterViewController: UITableViewController {
             let controllers = split.viewControllers
             self.detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
         }
+        
+        
+    
+        
     }
 
     override func viewWillAppear(_ animated: Bool) {
