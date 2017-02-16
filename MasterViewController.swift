@@ -8,11 +8,16 @@
 
 import UIKit
 
-class MasterViewController: UITableViewController {
+class MasterViewController: UITableViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     
     @IBOutlet weak var select_image: UIImageView!
     @IBAction func cameraButton(_ sender: UIBarButtonItem) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
+            
+        }
+        
+        
     }
     @IBAction func photoLibraryButton(_ sender: UIBarButtonItem) {
     }
