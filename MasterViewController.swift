@@ -15,6 +15,14 @@ class MasterViewController: UITableViewController,UIImagePickerControllerDelegat
     @IBAction func cameraButton(_ sender: UIBarButtonItem) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
             
+            // set up
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.camera;
+            
+            // user settings
+            imagePicker.allowsEditing = false
+            self.present(imagePicker, animated: true, completion: nil)
         }
         
         
