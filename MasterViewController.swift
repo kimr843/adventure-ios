@@ -24,11 +24,22 @@ class MasterViewController: UITableViewController,UIImagePickerControllerDelegat
             imagePicker.allowsEditing = false
             self.present(imagePicker, animated: true, completion: nil)
         }
-        
-        
     }
+    
     @IBAction func photoLibraryButton(_ sender: UIBarButtonItem) {
+        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.photoLibrary)
+        {
+            // set up
+            let imagePicker = UIImagePickerController()
+            imagePicker.delegate = self
+            imagePicker.sourceType = UIImagePickerControllerSourceType.photoLibrary;
+            
+            // user settings
+            imagePicker.allowsEditing = true
+            self.present(imagePicker, animated: true, completion: nil)
+        }
     }
+    
     @IBAction func saveBUtton(_ sender: Any) {
     }
     
