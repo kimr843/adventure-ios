@@ -11,7 +11,7 @@ import UIKit
 class MasterViewController: UITableViewController,UIImagePickerControllerDelegate, UINavigationControllerDelegate {
 
     
-    @IBOutlet weak var select_image: UIImageView!
+    @IBOutlet weak var imagePicked: UIImageView!
     @IBAction func cameraButton(_ sender: UIBarButtonItem) {
         if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
             
@@ -40,7 +40,14 @@ class MasterViewController: UITableViewController,UIImagePickerControllerDelegat
         }
     }
     
-    @IBAction func saveBUtton(_ sender: Any) {
+    @IBAction func saveButton(_ sender: Any) {
+        
+        // set img type : jpeg compression
+        let imageData = UIImageJPEGRepresentation(imagePicked.image!,0.7)
+        let compressedJPEGImage = UIImage(data: imageData!)
+        
+        // save img
+        UIImageWriteToSavedPhotosAlbum(compressedJPEGImage!, nil, nil, nil)
     }
     
     
