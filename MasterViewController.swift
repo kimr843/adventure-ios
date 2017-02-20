@@ -50,13 +50,19 @@ class MasterViewController: UITableViewController,UIImagePickerControllerDelegat
         UIImageWriteToSavedPhotosAlbum(compressedJPEGImage!, nil, nil, nil)
     }
     
-    // Call actions 
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        
-        imagePicked.image = image
-        self.dismiss(animated: true, completion: nil);
-    }
     
+    // Call actions 
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        // Set picked image
+        if let pickedImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imagePicked.contentMode = .scaleAspectFit
+            imagePicked.image = pickedImage
+        }
+        
+        self.dismiss(animated: true, completion: nil);
+
+    }
     
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
